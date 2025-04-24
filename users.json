@@ -1,29 +1,38 @@
 {
-    "1154557014": {
-        "name": "Никита",
-        "chat_id": "1154557014",
-        "nickname": "wolfguy00",
-        "age": 16,
-        "gender": "Мужской",
-        "city": "Сургут",
-        "user_id": 7948
-    },
     "956979922": {
-        "name": "Андрей",
-        "chat_id": "956979922",
-        "nickname": "Lesren",
+        "id": 345,
+        "real_name": "Андрей",
+        "nickname": "andr",
         "age": 41,
         "gender": "Мужской",
         "city": "Сургут",
-        "user_id": 7923
+        "rating": 1
     },
     "1438678386": {
-        "name": "Vlad",
-        "chat_id": "1438678386",
-        "nickname": "Vlad",
+        "id": 234,
+        "real_name": "Vlad",
+        "nickname": "vll",
         "age": 99,
         "gender": "Мужской",
         "city": "Ханты-Мансийск",
-        "user_id": 4231
+        "rating": 4
+    },
+    "1154557014": {
+        "id": 685,
+        "real_name": "Espsapap",
+        "nickname": "Iemfie",
+        "age": 71,
+        "gender": "Мужской",
+        "city": "Сургут",
+        "rating": 0
+    },
+    "245778824568": {
+        "id": 644,
+        "real_name": "354erg",
+        "nickname": "fgdrrdy",
+        "age": 45,
+        "gender": "Мужской",
+        "city": "Сургут",
+        "rating": 11
     }
 }

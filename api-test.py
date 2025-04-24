@@ -9,7 +9,7 @@ headers = {
 }
 
 data = {
-    "model": "deepseek-ai/DeepSeek-R1",
+    "model": "microsoft/Phi-3.5-mini-instruct",
     "messages": [
         {
             "role": "system",
@@ -22,11 +22,10 @@ data = {
     ],
 }
 
-message = 'Мне 16 лет, я хочу записаться на секцию единоборства'
 
 response = requests.post(url, headers=headers, json=data)
 data = response.json()
 # pprint(data)
 
 text = data['choices'][0]['message']['content']
-print(text.split('</think>\n\n')[1])
+print(text)
