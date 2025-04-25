@@ -5,7 +5,6 @@ import time
 import requests
 import json
 
-# Замени 'YOUR_BOT_TOKEN' на токен своего бота
 BOT_TOKEN = '7475097618:AAGzzSlfRelwn4C5qr2y6zHtefVZOzBRMPo'
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -18,7 +17,7 @@ headers = {
 users_file = 'users.json'
 user_states = {}
 search_queries = {}
-events_channel_link = 'ССЫЛКА_НА_ВАШ_ТЕЛЕГРАМ_КАНАЛ' # Замените на реальную ссылку
+events_channel_link = 't.me/hmao_sport' # Замените на реальную ссылку
 workout_program_requests = {}
 
 def load_users():
@@ -78,7 +77,12 @@ def get_real_name(message):
 def ask_for_workout_details(message):
     chat_id = message.chat.id
     workout_program_requests[chat_id] = {'state': 'waiting_for_details'}
-    bot.send_message(chat_id, "Отлично! Расскажите, какую программу тренировок вы хотите составить (например, опишите свою цель, предпочтения, уровень подготовки и прочее, как можно подробнее):")
+    bot.send_message(chat_id, '''💪Расскажите, какую программу тренировок вы хотите составить
+    - опишите свою цель
+    - предпочтения
+    - уровень подготовки
+    - желаемое время для на достижение результата
+    и прочее, как можно подробнее''')
 
 @bot.message_handler(func=lambda message: workout_program_requests.get(message.chat.id, {}).get('state') == 'waiting_for_details')
 def get_workout_details(message):
@@ -111,8 +115,8 @@ def get_workout_details(message):
     text = data['choices'][0]['message']['content']
     print(text)
     bot.send_message(chat_id, text, parse_mode="Markdown")
-    bot.send_message(chat_id, 'Ваша программа составлена!\n'
-                              'Сохраните в заметках чтобы не потерять', parse_mode="Markdown")
+    bot.send_message(chat_id, '💪 Ваша программа составлена!\n'
+                              '🏋️‍♀️ Сохраните в заметках чтобы не потерять', parse_mode="Markdown")
 
     del workout_program_requests[chat_id]  # Очищаем запрос
 
@@ -198,18 +202,20 @@ def get_search_query(message):
     chat_id = message.chat.id
     query = message.text
     search_queries[chat_id]['query'] = query
-    del search_queries[chat_id]
-    # Здесь можно было бы реализовать логику поиска мест,
-    # но в данном примере мы просто записываем запрос.
+
     bot.send_message(chat_id, f"✅ Запрос принят!\n"
                               f"Нужно немножко подождать 😉")
-    with open('organizations.json', 'r', encoding='utf-8') as file:
-        data = json.load(file)
 
-    print(data)
+
+    with open('organizations.json', 'r', encoding='utf-8') as file:
+        org_data = json.load(file)
+
+    print(org_data)
+
+    print(search_queries[message.from_user.id]['query'])
 
     data = {
-        "model": "microsoft/Phi-3.5-mini-instruct",
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
         "messages": [
             {
                 "role": "system",
@@ -217,11 +223,15 @@ def get_search_query(message):
             },
             {
                 "role": "user",
-                "content": f'''Составь список ТОЛЬКО из данных списка {data} по запросу: {search_queries}. 
-            Формат ответа для каждого места:
+                "content": f'''Составь список ТОЛЬКО из данных списка {org_data} по запросу: {search_queries}. 
+            Формат ответа для каждого места(если вариантов больше пяти - выводи 5 случайных и ничего больше):
             1. [Название] - [Краткое описание на основе названия, 2-3 слова]
+                [ссылка на 2gis]
+            
+            2. [Название] - [Краткое описание на основе названия, 2-3 слова]
+                [ссылка на 2gis]
             ...
-            Не добавляй контакты, ссылки или другие поля из файла. Используй только перечисленные в файле названия.'''
+            '''
             }
         ]
     }

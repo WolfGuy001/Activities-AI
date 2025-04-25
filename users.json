@@ -1,38 +1,47 @@
 {
+    "1154557014": {
+        "id": 925,
+        "real_name": "Никита",
+        "nickname": "wolfguy00",
+        "age": 16,
+        "gender": "Мужской",
+        "city": "Сургут",
+        "rating": 34
+    },
+    "1139611529": {
+        "id": 780,
+        "real_name": "Вероника",
+        "nickname": "jopo",
+        "age": 15,
+        "gender": "Женский",
+        "city": "Сургут",
+        "rating": 27
+    },
+    "1688048430": {
+        "id": 301,
+        "real_name": "Владимир",
+        "nickname": "Tim3",
+        "age": 17,
+        "gender": "Мужской",
+        "city": "Сургут",
+        "rating": 12
+    },
+    "1438678386": {
+        "id": 469,
+        "real_name": "Vlad",
+        "nickname": "Vlad",
+        "age": 35,
+        "gender": "Мужской",
+        "city": "Сургут",
+        "rating": 42
+    },
     "956979922": {
-        "id": 345,
+        "id": 412,
         "real_name": "Андрей",
-        "nickname": "andr",
+        "nickname": "Lesren",
         "age": 41,
         "gender": "Мужской",
         "city": "Сургут",
-        "rating": 1
-    },
-    "1438678386": {
-        "id": 234,
-        "real_name": "Vlad",
-        "nickname": "vll",
-        "age": 99,
-        "gender": "Мужской",
-        "city": "Ханты-Мансийск",
-        "rating": 4
-    },
-    "1154557014": {
-        "id": 685,
-        "real_name": "Espsapap",
-        "nickname": "Iemfie",
-        "age": 71,
-        "gender": "Мужской",
-        "city": "Сургут",
-        "rating": 0
-    },
-    "245778824568": {
-        "id": 644,
-        "real_name": "354erg",
-        "nickname": "fgdrrdy",
-        "age": 45,
-        "gender": "Мужской",
-        "city": "Сургут",
-        "rating": 11
+        "rating": 20
     }
 }
